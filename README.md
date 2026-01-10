@@ -137,7 +137,7 @@ def send_sns(message):
 
 ```
 ---
-##🔧 IAM Policy (Least Privilege)
+## 🔧 IAM Policy (Least Privilege)
 
 Place this inside docs/iam-policy.json
 
