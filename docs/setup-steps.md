@@ -57,7 +57,7 @@ Only instances with this tag will be backed up.
 1. Go to **EventBridge → Rules → Create Rule**
 2. Name: `smart-vault-daily-backup`
 3. Type: **Schedule**
-4. Schedule pattern (daily at UTC 1 AM): 
+4. Schedule pattern (daily at UTC 1 AM): cron(0 1 * * ? *)
 5. Add target → Lambda function → choose `smart-vault-backup`
 6. Create rule
 
