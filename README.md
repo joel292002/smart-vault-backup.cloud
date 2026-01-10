@@ -38,26 +38,6 @@ SmartVault’s architecture includes:
 
 ---
 
-## 📦 Folder Structure
-
-smartvault-backup/
-│
-├── lambda/
-│ └── lambda_function.py
-│
-├── architecture/
-│ ├── smartvault-architecture.png
-│ └── eventbridge-flow.png
-│
-├── docs/
-│ ├── setup-steps.md
-│ ├── iam-policy.json
-│ ├── test-event.json
-│ └── screenshot-list.md
-│
-└── README.md
-
----
 
 
 ---
@@ -122,6 +102,7 @@ def lambda_handler(event, context):
 
             created.append(snap["SnapshotId"])
 
+
     # 2. Cleanup old snapshots
     old_snaps = ec2.describe_snapshots(
         OwnerIds=["self"],
@@ -154,8 +135,9 @@ Deleted old snapshots: {deleted}
 def send_sns(message):
     sns.publish(TopicArn=SNS_TOPIC_ARN, Message=message, Subject="SmartVault Backup Notification")
 
-
-🔧 IAM Policy (Least Privilege)
+```
+---
+##🔧 IAM Policy (Least Privilege)
 
 Place this inside docs/iam-policy.json
 
@@ -167,14 +149,16 @@ Place this inside docs/iam-policy.json
     { "Effect": "Allow", "Action": ["sns:Publish"], "Resource": "*" }
   ]
 }
+---
 
-📅 EventBridge Schedule
+##📅 EventBridge Schedule
 
 Example cron to run every day at 1 AM UTC:
 
 cron(0 1 * * ? *)
+---
 
-📨 SNS Alerts
+##📨 SNS Alerts
 
 Alerts sent include:
 
@@ -185,8 +169,9 @@ No instances found (backup skipped)
 Cleanup of old snapshots
 
 Any unexpected errors
+---
 
-🧪 Test Event
+##🧪 Test Event
 
 Use this test event in the Lambda console:
 
@@ -194,7 +179,10 @@ Use this test event in the Lambda console:
   "action": "manual-trigger"
 }
 
-🧹 Cleanup & Cost Control
+---
+
+
+##🧹 Cleanup & Cost Control
 
 To avoid charges, delete:
 
