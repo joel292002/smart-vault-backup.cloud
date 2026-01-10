@@ -151,14 +151,14 @@ Place this inside docs/iam-policy.json
 }
 ---
 
-##📅 EventBridge Schedule
+## 📅 EventBridge Schedule
 
 Example cron to run every day at 1 AM UTC:
 
 cron(0 1 * * ? *)
 ---
 
-##📨 SNS Alerts
+## 📨 SNS Alerts
 
 Alerts sent include:
 
@@ -171,7 +171,7 @@ Cleanup of old snapshots
 Any unexpected errors
 ---
 
-##🧪 Test Event
+## 🧪 Test Event
 
 Use this test event in the Lambda console:
 
@@ -182,7 +182,7 @@ Use this test event in the Lambda console:
 ---
 
 
-##🧹 Cleanup & Cost Control
+## 🧹 Cleanup & Cost Control
 
 To avoid charges, delete:
 
