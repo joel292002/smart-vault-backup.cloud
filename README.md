@@ -22,7 +22,7 @@ SmartVault’s architecture includes:
 - SNS Topic → Alerts sent to email  
 - CloudWatch Logs → Monitor success/failure  
 
-(Place your architecture diagram here if available)
+
 
 ---
 
